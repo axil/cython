@@ -116,6 +116,27 @@ builtin_function_table = [
                         ],
                         is_strict_signature = True)),
     BuiltinFunction('abs',        "O",    "O",     "PyNumber_Absolute"),
+    BuiltinFunction('abs',        None,    None,   "__Pyx_c_abs{0}".format(PyrexTypes.c_double_complex_type.funcsuffix),
+                    #utility_code = UtilityCode.load('Arithmetic', 'Complex.c', PyrexTypes.c_double_complex_type._utility_code_context()),
+                    func_type = PyrexTypes.CFuncType(
+                        PyrexTypes.c_double_type, [
+                            PyrexTypes.CFuncTypeArg("arg", PyrexTypes.c_double_complex_type, None)
+                            ],
+                            is_strict_signature = True)),
+    BuiltinFunction('abs',        None,    None,   "__Pyx_c_abs{0}".format(PyrexTypes.c_float_complex_type.funcsuffix),
+                    #utility_code = UtilityCode.load('Arithmetic', 'Complex.c', PyrexTypes.c_float_complex_type._utility_code_context()),
+                    func_type = PyrexTypes.CFuncType(
+                        PyrexTypes.c_float_type, [
+                            PyrexTypes.CFuncTypeArg("arg", PyrexTypes.c_float_complex_type, None)
+                            ],
+                            is_strict_signature = True)),
+    BuiltinFunction('abs',        None,    None,   "__Pyx_c_abs{0}".format(PyrexTypes.c_longdouble_complex_type.funcsuffix),
+                    #utility_code = UtilityCode.load('Arithmetic', 'Complex.c', PyrexTypes.c_longdouble_complex_type._utility_code_context()),
+                    func_type = PyrexTypes.CFuncType(
+                        PyrexTypes.c_longdouble_type, [
+                            PyrexTypes.CFuncTypeArg("arg", PyrexTypes.c_longdouble_complex_type, None)
+                            ],
+                            is_strict_signature = True)),    
     #('all',       "",     "",      ""),
     #('any',       "",     "",      ""),
     #('ascii',     "",     "",      ""),
